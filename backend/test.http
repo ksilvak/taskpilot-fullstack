@@ -1,0 +1,39 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc2ODMwODI4NSwiZXhwIjoxNzY4MzExODg1fQ.Q5Otoy028dKq8318dq26Yb-E6qvrgf20EFvGpVj5MBo
+
+
+### Register user
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example2.com",
+  "password": "secret123"
+}
+
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "secret123"
+}
+### Get current user
+GET http://localhost:3000/api/users/me
+Authorization: Bearer {{token}}
+
+### Create task
+POST http://localhost:3000/api/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "My first task",
+  "description": "Finish TaskPilot backend"
+}
+
+### Get my tasks
+GET http://localhost:3000/api/tasks
+Authorization: Bearer {{token}}
+
