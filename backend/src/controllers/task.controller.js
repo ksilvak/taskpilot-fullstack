@@ -15,7 +15,7 @@ const createTask = async (req, res) => {
         title,
         description,
         status: 'todo',
-        userId: req.userId,
+        userId: req.user.userId,
       },
     });
 
@@ -31,7 +31,7 @@ const createTask = async (req, res) => {
 const getTasks = async (req, res) => {
   try {
     const tasks = await prisma.task.findMany({
-      where: { userId: req.userId },
+      where: { userId: req.user.userId },
       orderBy: { createdAt: 'desc' },
     });
 
@@ -52,7 +52,7 @@ const updateTask = async (req, res) => {
     const task = await prisma.task.findFirst({
       where: {
         id: Number(id),
-        userId: req.userId,
+        userId: req.user.userId,
       },
     });
 
@@ -79,7 +79,7 @@ const deleteTask = async (req, res) => {
     const task = await prisma.task.findFirst({
       where: {
         id: Number(id),
-        userId: req.userId,
+        userId: req.user.userId,
       },
     });
 

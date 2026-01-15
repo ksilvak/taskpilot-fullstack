@@ -32,10 +32,16 @@ const register = async (req, res) => {
       },
     });
 
-    res.status(201).json({
-      id: user.id,
-      email: user.email,
-    });
+    const token = jwt.sign(
+      { 
+        userId: user.id,
+        role: user.role
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '1d' }
+    );
+    res.status(201).json({ token });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -57,12 +63,12 @@ const login = async (req, res) => {
     const user = await prisma.user.findUnique({
       where: { email },
     });
-
+    
     if (!user) {
-      return res.status(401).json({
-        message: 'Invalid credentials',
+      return res.status(404).json({
+        message: 'User not found'
       });
-    }
+    };
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
@@ -73,7 +79,10 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { userId: user.id },
+      { 
+        userId: user.id,
+        role: user.role,
+      },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
