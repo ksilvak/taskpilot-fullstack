@@ -1,96 +1,57 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import AuthForm from '../components/auth/AuthForm';
+import ErrorMessage from '../components/common/ErrorMessage';
+import { useAuth } from '../hooks/useAuth';
 
 function AuthPage() {
-
-    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const [successMessage, setSuccessMessage] = useState(null);
+    const [formError, setFormError] = useState(null);
 
-    const handleLogin = async () => {
-        setError(null);
-        setSuccessMessage(null);
+    const { loading, error: authError, handleLogin, handleRegister } = useAuth();
+    const navigate = useNavigate();
+    const error = formError || authError;
 
-        const response = await fetch('http://localhost:3000/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
-        });
-
-        const data = await response.json()
-
-        if(!response.ok) {
-            if(response.status === 404) {
-                setError('Uživatel neexistuje. Můžeš se zaregistrovat.');
-            } else if (response.status === 401) {
-                setError('Špatné heslo.');
-            } else {
-                setError('Chyba při přihlášení.');
-            } return;
-        };
-
-        localStorage.setItem('token', data.token);
-        navigate('/tasks');
-
+    const isValidEmail = (email) => {
+        return /\S+@\S+\.\S+/.test(email);
     };
 
-    const handleRegister = async () => {
-        setError(null);
-        setSuccessMessage(null);
+    const handleLoginSubmit = async (e) => {
+        e.preventDefault();
+        setFormError(null);
 
-        const response = await fetch('http://localhost:3000/api/auth/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
-        });
+        if (!isValidEmail(email)) {
+            setFormError('Neplatný formát e-mailu');
+            return;
+        }
 
-        if (!response.ok) {
-            if (response.status === 409) {
-                setError('Uživatel už existuje. Přihlas se.');
-            } else {
-                setError('Chyba při registraci.');
-            } return;
-        };
+        const success = await handleLogin(email, password);
+        if (success) navigate('/tasks');
+    };
 
-       const data = await response.json();
+    const handleRegisterSubmit = async () => {
+        if (!isValidEmail(email)) {
+            setFormError('Neplatný formát e-mailu');
+            return;
+        }
 
-        localStorage.setItem('token', data.token);
-        navigate('/tasks');
+        const success = await handleRegister(email, password);
+        if (success) navigate('/tasks');
     };
 
     return (
         <div>
-            <input 
-                type="email"
-                placeholder="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+            <AuthForm 
+                email={email}
+                password={password}
+                loading={loading}
+                onEmailChange={setEmail}
+                onPasswordChande={setPassword}
+                onSubmit={handleLoginSubmit}
+                onRegister={handleRegisterSubmit}
             />
-            <input 
-                type="password"
-                placeholder="heslo"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-            <div>
-                <button onClick={handleLogin}> Login </button>
-                <button onClick={handleRegister}> Register </button>
-            </div>
+            {error && <ErrorMessage message={error} />}           
         </div>
     );
 }
