@@ -1,0 +1,13 @@
+@use 'variables' as *;
+
+
+body {
+  font-family: $font-family-base;
+  background: $color-bg;
+  color: $color-text-primary;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}

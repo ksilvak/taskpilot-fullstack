@@ -1,8 +1,13 @@
-
 import UserRow from "./UserRow";
+import { User } from "../../types/user";
 
 
-function UsersTable ({users, onDelete}) {
+type UsersTableProps = {
+    users: User[],
+    onDelete: (userId: number) => void,
+}
+
+function UsersTable ({users, onDelete}: UsersTableProps) {
     return (
         <table>
             <thead>

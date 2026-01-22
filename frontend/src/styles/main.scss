@@ -1,0 +1,11 @@
+@use 'variables' as *;
+@use 'reset';
+@use 'base';
+@use 'mixins';
+
+.app-main {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: $header-height;
+}

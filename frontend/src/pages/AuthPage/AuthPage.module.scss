@@ -1,0 +1,11 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+
+.wrapper {
+  min-height: calc(100vh - $header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

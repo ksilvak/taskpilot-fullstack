@@ -1,4 +1,11 @@
-function UserRow ({user, onDelete}) {
+import { User } from "../../types/user";
+
+type UserRowProps = {
+    user: User,
+    onDelete: (userId: number) => void,
+}
+
+function UserRow ({user, onDelete}: UserRowProps) {
 
     return (
         <tr>

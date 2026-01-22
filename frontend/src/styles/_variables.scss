@@ -1,0 +1,100 @@
+/* =====================
+   COLORS
+===================== */
+
+$color-primary: #2563eb;
+$color-primary-hover: #1d4ed8;
+
+$color-secondary: #64748b;
+$color-accent: #22c55e;
+
+$color-text-primary: #0f172a;
+$color-text-secondary: #475569;
+
+$color-bg: #ffffff;
+$color-bg-muted: #f8fafc;
+$color-border: #e2e8f0;
+
+$color-error: #ef4444;
+$color-warning: #f59e0b;
+$color-success: #22c55e;
+
+
+/* =====================
+   SPACING
+===================== */
+
+$space-2xs: 4px;
+$space-xs: 8px;
+$space-sm: 12px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-2xl: 48px;
+
+
+/* =====================
+   TYPOGRAPHY
+===================== */
+
+$font-family-base: 'Inter', system-ui, sans-serif;
+$font-family-mono: 'JetBrains Mono', monospace;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-loose: 1.75;
+
+
+/* =====================
+   RADIUS
+===================== */
+
+$radius-none: 0;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 9999px;
+
+
+/* =====================
+   BORDER
+===================== */
+
+/* width */
+$border-width-none: 0;
+$border-width-sm: 1px;
+$border-width-md: 2px;
+
+/* style */
+$border-style-solid: solid;
+$border-style-dashed: dashed;
+
+/* color */
+$border-color-default: $color-border;
+$border-color-muted: #e5e7eb;
+$border-color-focus: $color-primary;
+$border-color-error: $color-error;
+
+$classic-border: $border-width-md $border-style-solid $border-color-default;
+
+
+$header-height: 64px;
+
+
+header {
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

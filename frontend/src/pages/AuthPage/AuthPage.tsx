@@ -1,23 +1,25 @@
+import styles from './AuthPage.module.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthForm from '../components/auth/AuthForm';
-import ErrorMessage from '../components/common/ErrorMessage';
-import { useAuth } from '../hooks/useAuth';
+import AuthForm from '../../components/auth/AuthForm';
+import ErrorMessage from '../../components/common/ErrorMessage';
+import { useAuth } from '../../hooks/useAuth';
+import Header from '../../components/Header';
 
 function AuthPage() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [formError, setFormError] = useState(null);
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [formError, setFormError] = useState<string | null>(null);
 
     const { loading, error: authError, handleLogin, handleRegister } = useAuth();
     const navigate = useNavigate();
     const error = formError || authError;
 
-    const isValidEmail = (email) => {
+    const isValidEmail = (email: string) => {
         return /\S+@\S+\.\S+/.test(email);
     };
 
-    const handleLoginSubmit = async (e) => {
+    const handleLoginSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setFormError(null);
 
@@ -31,6 +33,8 @@ function AuthPage() {
     };
 
     const handleRegisterSubmit = async () => {
+        setFormError(null);
+            
         if (!isValidEmail(email)) {
             setFormError('Neplatný formát e-mailu');
             return;
@@ -41,7 +45,8 @@ function AuthPage() {
     };
 
     return (
-        <div>
+        <div className={styles.wrapper}>
+            <Header />
             <AuthForm 
                 email={email}
                 password={password}

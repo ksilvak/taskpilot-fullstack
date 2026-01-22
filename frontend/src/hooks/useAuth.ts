@@ -21,24 +21,31 @@ const parseToken = (token: string): TokenPayload | null => {
 
 export function useAuth() {
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if(!token) return;
+        if (!token) {
+            setLoading(false);
+            return;
+        }
 
         const payload = parseToken(token);
-        if(!payload) return;
+        if (!payload) {
+            setLoading(false);
+            return;
+        }
         
         setUser({
             id: payload.userId,
             role: payload.role,
             email: payload.email ?? '',
-        })
-
+        });
+        
+        setLoading(false);
     },[]);
 
     const handleLogin = useCallback(async (
@@ -89,7 +96,7 @@ export function useAuth() {
 
     const handleLogout = useCallback(async () => {
         localStorage.removeItem('token');
-        window.location.href = '/';
+        window.location.href = '/login';
         setUser(null)
     }, []);
 
