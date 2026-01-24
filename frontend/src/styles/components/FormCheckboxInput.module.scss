@@ -1,0 +1,43 @@
+@use '../utils/variables' as v;
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+}
+
+.box {
+  margin: v.$space-md;
+  width: v.$space-md;
+  height: v.$space-md;
+  border: v.$classic-border;
+  border-radius: v.$radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+/* checked */
+input:checked + .box {
+  background-color: v.$color-primary;
+  border-color: v.$color-primary;
+}
+
+input:checked + .box::after {
+  content: '✓';
+  color: v.$color-bg;
+  position: absolute;
+  line-height: 1px;
+  font-size: v.$font-size-sm;
+}
+
+/* disabled */
+input:disabled + .box {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

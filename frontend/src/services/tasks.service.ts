@@ -8,12 +8,9 @@ export async function getTasks(token: string): Promise<Task[]> {
   });
   if (!res.ok) throw new Error('Nepodařilo se načíst úkoly');
   return res.json();
-};
+}
 
-export async function createTask(
-  title: string, 
-  token: string
-): Promise<Task> {
+export async function createTask(title: string, token: string): Promise<Task> {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
@@ -26,10 +23,7 @@ export async function createTask(
   return res.json();
 }
 
-export async function deleteTask(
-  id: number, 
-  token: string
-): Promise<void> {
+export async function deleteTask(id: number, token: string): Promise<void> {
   const res = await fetch(`${API_URL}/${id}`, {
     method: 'DELETE',
     headers: { Authorization: `Bearer ${token}` },
@@ -38,8 +32,8 @@ export async function deleteTask(
 }
 
 export async function toggleTask(
-  id: number, 
-  status: TaskStatus, 
+  id: number,
+  status: TaskStatus,
   token: string
 ): Promise<Task> {
   const res = await fetch(`${API_URL}/${id}`, {

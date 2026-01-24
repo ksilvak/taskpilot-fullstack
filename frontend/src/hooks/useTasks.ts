@@ -20,7 +20,7 @@ export function useTasks(token: string | null): UseTasksResult {
       const data = await getTasks(token);
       setTasks(data);
     } catch (err) {
-       if (err instanceof Error) {
+      if (err instanceof Error) {
         setError(err.message);
       } else {
         setError('Unknown error');
@@ -46,9 +46,7 @@ export function useTasks(token: string | null): UseTasksResult {
     if (!token) return;
     const newStatus = task.status === 'done' ? 'todo' : 'done';
     const updated = await toggleTask(task.id, newStatus, token);
-    setTasks((prev) =>
-      prev.map((t) => (t.id === task.id ? updated : t))
-    );
+    setTasks((prev) => prev.map((t) => (t.id === task.id ? updated : t)));
   };
 
   useEffect(() => {

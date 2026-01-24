@@ -1,0 +1,10 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+.wrapper {
+  min-height: calc(100vh - v.$header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

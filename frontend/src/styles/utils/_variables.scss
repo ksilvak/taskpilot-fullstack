@@ -19,7 +19,6 @@ $color-error: #ef4444;
 $color-warning: #f59e0b;
 $color-success: #22c55e;
 
-
 /* =====================
    SPACING
 ===================== */
@@ -31,7 +30,6 @@ $space-md: 16px;
 $space-lg: 24px;
 $space-xl: 32px;
 $space-2xl: 48px;
-
 
 /* =====================
    TYPOGRAPHY
@@ -54,7 +52,6 @@ $line-height-tight: 1.2;
 $line-height-normal: 1.5;
 $line-height-loose: 1.75;
 
-
 /* =====================
    RADIUS
 ===================== */
@@ -64,7 +61,6 @@ $radius-sm: 4px;
 $radius-md: 8px;
 $radius-lg: 12px;
 $radius-full: 9999px;
-
 
 /* =====================
    BORDER
@@ -87,9 +83,7 @@ $border-color-error: $color-error;
 
 $classic-border: $border-width-md $border-style-solid $border-color-default;
 
-
 $header-height: 64px;
-
 
 header {
   height: $header-height;
@@ -97,4 +91,3 @@ header {
   align-items: center;
   justify-content: center;
 }
-

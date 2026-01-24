@@ -9,7 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "ESNext",
     "target": "esnext",
-   // "types": [],
+    // "types": [],
     // For nodejs:
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     // "types": ["node"],
@@ -18,7 +18,7 @@
     // Other Outputs
     "sourceMap": true,
     // "declaration": true,
-   // "declarationMap": true,
+    // "declarationMap": true,
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
@@ -43,6 +43,11 @@
     "moduleResolution": "bundler",
     "allowJs": true,
     "noEmit": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-   "include": ["src"]
+  "include": ["src"]
 }

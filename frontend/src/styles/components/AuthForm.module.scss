@@ -1,0 +1,14 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputsRow,
+.buttonsRow {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}

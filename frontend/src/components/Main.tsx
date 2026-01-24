@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import AuthPage from '../pages/AuthPage/AuthPage';
-import TasksPage from '../pages/TasksPage/TasksPage';
-import AdminUsersPage from '../pages/AdminPage/AdminUsersPage';
+import AuthPage from '../pages/AuthPage';
+import TasksPage from '../pages/TasksPage';
+import AdminUsersPage from '../pages/AdminUsersPage';
 
 import ProtectedRoute from './ProtectedRoute';
 import AdminRoute from './AdminRoute';

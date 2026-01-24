@@ -1,0 +1,8 @@
+@use '../utils/variables' as v;
+
+.app-main {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: v.$header-height;
+}

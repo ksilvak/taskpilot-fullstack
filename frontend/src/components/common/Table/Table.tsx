@@ -1,5 +1,4 @@
-import styles from './Table.module.scss'
-
+import styles from '@/styles/components/Table.module.scss';
 
 type TableProps = {
   columns: string[];

@@ -1,5 +1,4 @@
-import styles from './FormTextInput.module.scss'
-
+import styles from '@/styles/components/FormTextInput.module.scss';
 
 type FormTextInputProps = {
   value: string;

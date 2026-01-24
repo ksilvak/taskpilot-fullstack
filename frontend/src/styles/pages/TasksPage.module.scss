@@ -1,6 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
 
 .tasksWrapper {
   min-height: 100vh;
@@ -11,7 +10,7 @@
 }
 
 .buttonsWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
 }

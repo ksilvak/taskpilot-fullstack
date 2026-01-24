@@ -1,6 +1,4 @@
-import styles from './FormCheckboxInput.module.scss'
-
-
+import styles from '@/styles/components/FormCheckboxInput.module.scss';
 
 type FormCheckboxProps = {
   checked: boolean;
@@ -8,11 +6,7 @@ type FormCheckboxProps = {
   onChange: (checked: boolean) => void;
 };
 
-function FormCheckbox({
-  checked,
-  disabled,
-  onChange,
-}: FormCheckboxProps) {
+function FormCheckbox({ checked, disabled, onChange }: FormCheckboxProps) {
   return (
     <label className={styles.checkbox}>
       <input
@@ -25,6 +19,5 @@ function FormCheckbox({
     </label>
   );
 }
-
 
 export default FormCheckbox;

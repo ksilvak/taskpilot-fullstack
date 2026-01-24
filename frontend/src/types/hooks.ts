@@ -1,7 +1,6 @@
 import { Task } from './task';
 import type { User } from './user';
 
-
 export interface UseAdminUsersResult {
   users: User[];
   loading: boolean;

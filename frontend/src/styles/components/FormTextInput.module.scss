@@ -1,0 +1,9 @@
+@use '../utils/variables' as v;
+
+.cutomTextInput {
+  margin: v.$space-md;
+  padding: 0 v.$space-sm 0 v.$space-sm;
+  border-radius: v.$radius-lg;
+  height: v.$space-xl;
+  border: v.$classic-border;
+}

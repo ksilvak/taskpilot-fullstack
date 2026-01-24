@@ -1,0 +1,30 @@
+@use '../utils/variables' as v;
+
+.tableWrapper {
+  border-radius: v.$radius-md;
+  overflow: hidden;
+  border: v.$classic-border;
+  width: 100%;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    padding: v.$space-md;
+    border-right: v.$classic-border;
+    border-bottom: v.$classic-border;
+    word-break: break-word;
+  }
+
+  th:last-child,
+  td:last-child {
+    border-right: none;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
