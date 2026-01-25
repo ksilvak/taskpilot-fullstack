@@ -1,5 +1,9 @@
-# taskpilot-fullstack
-TaskPilot is a simple full-stack task planner built to help users organize daily tasks, track progress, and stay focused on what matters most.
+# TaskPilot
+Simple task overview app.
+Own account with task management. 
+Admin can also manage other users.
+Used for my testing. 
+Still under development.
 
 ---
 
@@ -10,12 +14,12 @@ TaskPilot is a simple full-stack task planner built to help users organize daily
 - npm
 
 ## Run Frontend
-cd frontend
-npm install
-npm run dev
+In frontend folder run following commands: 
+  - npm install
+  - npm run dev
 
 
 ## Run Backend
-cd backend
-npm install
-npm run start
+In backend folder run following commands: 
+  - npm install
+  - npm run start
