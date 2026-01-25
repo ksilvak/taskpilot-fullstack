@@ -14,7 +14,7 @@ function AdminUsersPage() {
 
   return (
     <div className={styles.wrapper}>
-      <Button buttonName='Zpět' onClick={() => navigate('/tasks')}/>
+      <Button buttonName="Zpět" onClick={() => navigate('/tasks')} />
       <h1>Users</h1>
       {loading && <Loader text="Načítám úkoly…" />}
       {error && <ErrorMessage message={error} />}

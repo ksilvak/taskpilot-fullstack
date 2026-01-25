@@ -7,7 +7,7 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-function Button({ buttonName, buttonType, disabled, onClick }: ButtonProps) {  
+function Button({ buttonName, buttonType, disabled, onClick }: ButtonProps) {
   return (
     <button
       type={buttonType}

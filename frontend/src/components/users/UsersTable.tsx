@@ -10,9 +10,9 @@ type UsersTableProps = {
 function UsersTable({ users, onDelete }: UsersTableProps) {
   return (
     <Table columns={['Email', 'Role', 'Akce']}>
-        {users.map((user) => (
-          <UserRow key={user.id} user={user} onDelete={onDelete} />
-        ))}
+      {users.map((user) => (
+        <UserRow key={user.id} user={user} onDelete={onDelete} />
+      ))}
     </Table>
   );
 }
