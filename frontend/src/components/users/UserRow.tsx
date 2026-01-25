@@ -1,4 +1,6 @@
 import { User } from '../../types/user';
+import Button from '../common/Button';
+
 
 type UserRowProps = {
   user: User;
@@ -12,7 +14,7 @@ function UserRow({ user, onDelete }: UserRowProps) {
       <td>{user.role}</td>
       <td>
         {user.role !== 'admin' && (
-          <button onClick={() => onDelete(user.id)}>Smazat</button>
+          <Button buttonName='Smazat' onClick={() => onDelete(user.id)}/>
         )}
       </td>
     </tr>

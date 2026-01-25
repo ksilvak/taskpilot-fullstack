@@ -1,4 +1,5 @@
 import UserRow from './UserRow';
+import Table from '../common/Table/Table';
 import { User } from '../../types/user';
 
 type UsersTableProps = {
@@ -8,20 +9,11 @@ type UsersTableProps = {
 
 function UsersTable({ users, onDelete }: UsersTableProps) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Akce</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table columns={['Email', 'Role', 'Akce']}>
         {users.map((user) => (
           <UserRow key={user.id} user={user} onDelete={onDelete} />
         ))}
-      </tbody>
-    </table>
+    </Table>
   );
 }
 

@@ -7,13 +7,13 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-function Button({ buttonName, buttonType, disabled, onClick }: ButtonProps) {
+function Button({ buttonName, buttonType, disabled, onClick }: ButtonProps) {  
   return (
     <button
       type={buttonType}
       disabled={disabled}
       onClick={onClick}
-      className={styles.btn}
+      className={styles.button}
     >
       {buttonName}
     </button>

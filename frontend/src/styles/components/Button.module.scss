@@ -1,6 +1,6 @@
 @use '../utils/variables' as v;
 
-.btn {
+.button {
   margin: v.$space-md;
   border: v.$classic-border;
   border-radius: v.$radius-lg;
@@ -9,6 +9,6 @@
   white-space: nowrap;
 }
 
-.btn:active {
+.button:active {
   border-color: black;
 }

@@ -2,9 +2,7 @@
 @use '../utils/mixins' as m;
 
 .wrapper {
+  @include m.flex-center;
   min-height: calc(100vh - v.$header-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 }

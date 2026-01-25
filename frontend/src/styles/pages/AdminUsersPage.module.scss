@@ -1,0 +1,8 @@
+@use '../utils/variables' as v;
+@use '../utils/mixins' as m;
+
+.wrapper {
+  @include m.flex-center;
+  min-height: calc(100vh - v.$header-height);
+  flex-direction: column;
+}
