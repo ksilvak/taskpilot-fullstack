@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import AuthPage from '../pages/AuthPage';
 import TasksPage from '../pages/TasksPage';
+import SettingsPage from '@/pages/SettingsPage';
 import AdminUsersPage from '../pages/AdminUsersPage';
 
 import ProtectedRoute from './ProtectedRoute';
@@ -16,6 +17,7 @@ function Main() {
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
 
           <Route element={<AdminRoute />}>
             <Route path="/admin/users" element={<AdminUsersPage />} />

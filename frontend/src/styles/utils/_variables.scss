@@ -84,10 +84,3 @@ $border-color-error: $color-error;
 $classic-border: $border-width-md $border-style-solid $border-color-default;
 
 $header-height: 64px;
-
-header {
-  height: $header-height;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}

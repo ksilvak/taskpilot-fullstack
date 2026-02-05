@@ -17,3 +17,10 @@ export interface UseTasksResult {
   removeTask: (id: number) => Promise<void>;
   toggleCompleted: (task: Task) => Promise<void>;
 }
+
+export interface UseUserResult {
+  fullName: string | null;
+  loading: boolean;
+  error: string | null;
+  addUserName: (firstName: string, lastName: string) => Promise<void>;
+}
